@@ -1,10 +1,17 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @wizard %>
-
-<div>
-  <%= link_to "Edit this wizard", edit_wizard_path(@wizard) %> |
-  <%= link_to "Back to wizards", wizards_path %>
-
-  <%= button_to "Destroy this wizard", @wizard, method: :delete %>
+<div class="container-fluid bg-secondary text-light p-5" style="width:80%;margin-left:auto;margin-right:auto;">
+    <div class="container bg-secondary p-5">
+        <h1 class="display-4"> <%= @wizard.name%> </h1>
+        <hr>
+        <p>Email:   <%= @wizard.email%> </p>
+        <p>House:   <%= @wizard.house%> </p>
+        <p>Bio:   <%= @wizard.bio%> </p>
+        <p>Birthday:   <%= @wizard.birthday%> </p>
+        <p>Any wizard relatives?  <%= @wizard.relatives%> </p>
+    </div>
+    <%= link_to "Edit this wizard", edit_wizard_path(@wizard), class:"btn btn-light me-md-2" %>|  
+    <%= link_to "Back to wizards", wizards_path, class:"btn btn-light me-md-2"%>
+    <br>
+    
+    <%= link_to "Destroy this wizard", @wizard, method: :delete, data: { turbo_method: :delete,
+    turbo_confirm: 'Are you sure?' }%>
 </div>
