@@ -1,9 +1,17 @@
-<br>
-<h1 style="width:80%;margin-left:auto;margin-right:auto;">Create new spell</h1>
+<div class="card" style="width:80%;margin-left:auto;margin-right:auto;">
 
-<%= render "form", spell: @spell %>
+  <div class="card-header">
+    <h1>Create new spell</h1>
+  </div>
 
-<br>
-<div style="width:80%;margin-left:auto;margin-right:auto;">
-  <%= link_to "Back to spells", spells_path, class:"btn btn-dark me-md-2"%>
+  <div class="card-body">
+    <%= render "form", spell: @spell %>
+
+    <br>
+      <%= link_to "Back to spells", spells_path, class:"btn btn-dark me-md-2"%>
+  </div>
 </div>
+
+<br>
+<br>
+

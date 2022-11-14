@@ -1,13 +1,17 @@
-<div class="container-fluid bg-secondary text-light p-5" style="width:80%;margin-left:auto;margin-right:auto;">
+<div class="container-fluid bg-light text-light p-5" style="width:80%;margin-left:auto;margin-right:auto;">
     <div class="container bg-secondary p-5">
         <h1 class="display-4"> <%= @spell.name%> </h1>
         <hr>
         <p>Description:   <%= @spell.description%> </p>
     </div>
-    <%= link_to "Edit this spell", edit_spell_path(@spell), class:"btn btn-light me-md-2" %>|  
-    <%= link_to "Back to spells", spells_path, class:"btn btn-light me-md-2"%>
+
+    <br>
+    <%= link_to "Edit this spell", edit_spell_path(@spell), class:"btn btn-dark me-md-2" %>|  
+    <%= link_to "Back to spells", spells_path, class:"btn btn-dark me-md-2"%>
     <br>
     
     <%= link_to "Destroy this spell", @spell, method: :delete, data: { turbo_method: :delete,
     turbo_confirm: 'Are you sure?' }%>
 </div>
+<br>
+<br>

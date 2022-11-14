@@ -1,9 +1,16 @@
-<br>
-<h1 style="width:80%;margin-left:auto;margin-right:auto;">Add new wizard</h1>
 
-<%= render "form", wizard: @wizard %>
+<div class="card" style="width:80%;margin-left:auto;margin-right:auto;">
 
-<br>
-<div style="width:80%;margin-left:auto;margin-right:auto;">
-  <%= link_to "Back to wizards", wizards_path, class:"btn btn-dark me-md-2"%>
+  <div class="card-header">
+    <h1>Add new wizard</h1>
+  </div>
+
+  <div class="card-body">
+    <%= render "form", wizard: @wizard %>
+    <br>
+    <%= link_to "Back to wizards", wizards_path%>
+  </div>
+  
 </div>
+<br>
+<br>
