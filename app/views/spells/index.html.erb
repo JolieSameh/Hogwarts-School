@@ -18,12 +18,14 @@
       <tbody class="table-group-divider" >
         <% @spells.each do |spell| %>
             <tr>
-              <td><%= spell.name %></td>
-              <td><%= spell.description %></td>
-              <td><%= link_to "Show", spell %></td>
-              <td><%= link_to "Edit", edit_spell_path(spell) %></td>
-              <td><%= link_to "Remove", spell, method: :delete, data: {turbo_method: :delete,
-              turbo_confirm: 'Are you sure?' } %></td>
+              <% if spell.user == current_user %>
+                <td><%= spell.name %></td>
+                <td><%= spell.description %></td>
+                <td><%= link_to "Show", spell %></td>
+                <td><%= link_to "Edit", edit_spell_path(spell) %></td>
+                <td><%= link_to "Remove", spell, method: :delete, data: {turbo_method: :delete,
+                turbo_confirm: 'Are you sure?' } %></td>
+              <% end %>
             </tr>
       
         <% end %>

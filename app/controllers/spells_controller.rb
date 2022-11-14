@@ -1,5 +1,6 @@
 class SpellsController < ApplicationController
   before_action :set_spell, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /spells or /spells.json
   def index
@@ -65,6 +66,6 @@ class SpellsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def spell_params
-      params.require(:spell).permit(:name, :description)
+      params.require(:spell).permit(:name, :description, :user_id)
     end
 end
