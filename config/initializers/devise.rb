@@ -14,11 +14,11 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '19573b112956c82b96e7176233967b045bc2db06cfa830513df5d4d6bbcd2ddfd2c26c99f4347a7ae68db15916330a34145c37c3e77041961c4a7a2100253656'
+  # config.secret_key = 'ebf98245e14c26f4bfa099120920d13c641df730cc8db5a82cab9a64156ceb9f5a02a13a4dd0a57476793aef823eadfc65ee5376457ca7bc0a2f16e779dd5c10'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
-  # config.parent_controller = 'DeviseController'
+  config.parent_controller = 'DeviseController'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -46,7 +46,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'feb1a483c49b4a2d16e4f36165b804c66d4ca5d6d28a8ff78d12b34bd9c9689f2b769211ff59cdcdd19ffbbc3ff616a0b9e2951985a9c55805f40dbcbac5c78c'
+  # config.pepper = '2aeca007fc4aca759f8f827629cd95320141475d43d1ef743e30cd57802d0f9c7d1f377df774969229af1dd8c2878fb39d5a6a13a988bde4778553f0ffcfd3cd'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -253,6 +253,9 @@ Devise.setup do |config|
   # Set this configuration to false if you want /users/sign_out to sign out
   # only the current scope. By default, Devise signs out all scopes.
   # config.sign_out_all_scopes = true
+  config.sign_out_via = :get
+
+
 
   # ==> Navigation configuration
   # Lists the formats that should be treated as navigational. Formats like
@@ -266,7 +269,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  # config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -310,4 +313,6 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   config.navigational_formats = ['*/*', :html, :turbo_stream]
+  config.navigational_formats = ['/', :html, :turbo_stream]
+
 end
