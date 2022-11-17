@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
-    # def show
+    def show
 
-    #     @user = User.find(params[:id])
+        @user = User.find(params[:id])
     
-    # end
+    end
 
     def follow
         @user = User.find(params[:id])
