@@ -1,15 +1,14 @@
 <div class="container-fluid bg-light text-light p-5 container">
     <div class="bg-secondary", style="margin: 25px auto; padding: 50px; border-radius: 40px;">
-        <h1 class="display-3"> <%= current_user.name%> </h1>
+        <h1 class="display-4" style="text-align: center;"> <%= current_user.name%> </h1>
+        <h3 style="text-align: center;">Followings: <%= current_user.followees.count %> Followers: <%= current_user.followers.count %>   </h6>
+
         <hr>
         <p>Email:   <%= current_user.email%> </p>
         <p>House:   <%= current_user.house%> </p>
         <p>Bio:   <%= current_user.bio%> </p>
         <p>Birthday:   <%= current_user.birthday%> </p>
         <p>Any wizard relatives?  <%= current_user.relatives%> </p>
-        <h3 style="text-align: right;">Followings: <%= current_user.followees.count %></h6>
-        <h3 style="text-align: right;"> Followers: <%= current_user.followers.count %></h6>
-
     </div>
     <%= link_to "Edit your profile", edit_user_registration_path, class:"btn btn-dark me-md-2" %>
     <br>
