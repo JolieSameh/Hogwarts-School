@@ -7,7 +7,15 @@
         And learn until our brains all rot</h5>
         <p> Never forget our school song, our love for spells and fellow wizards. <br>
         Invest more in your future as a MAGICAL wizard now.</p>
-        <%= link_to 'Sign in', new_user_session_path, class:"btn btn-dark btn-lg" %>   
-        <%= link_to 'Sign up', new_user_registration_path, class:"btn btn-dark btn-lg"%>
+        <% if user_signed_in? %>
+        
+        <% else %>
+            <%= link_to 'Sign in', new_user_session_path, class:"btn btn-dark btn-lg" %>   
+            <%= link_to 'Sign up', new_user_registration_path, class:"btn btn-dark btn-lg"%>
+        <% end %>
 </div>
+<br>
+<br>
+<br>
+
 

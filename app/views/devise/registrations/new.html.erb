@@ -21,7 +21,7 @@
       <div class="field form group"">
         <%= f.label :password %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>(8 characters minimum)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
       </div>
@@ -31,12 +31,6 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control"%>
       </div>
 
-
-      <div class="field form group"">
-        <%= f.label :house %><br />
-        <%= ["Gryffindor", "Hufflepuff", "Slytherin", "Ravenclaw"].sample %>
-
-      </div>
 
       <div class="field">
         <%= f.label :birthday %><br />
@@ -49,9 +43,11 @@
       </div>
 
       <div class="field form check">
-        <%= f.label :relatives %><br />
+        <%= f.label :relatives %>
         <%= f.check_box :relatives %>
       </div>
+
+      <%= hidden_field_tag :house, "value: 'A'" %>
       <br>
       
       <div class="actions">

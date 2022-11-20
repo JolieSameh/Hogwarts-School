@@ -1,8 +1,11 @@
 class Relationship < ApplicationRecord
     belongs_to :follower , class_name: "User"
-    belongs_to :followed , class_name: "User"
+    belongs_to :followee , class_name: "User"
 
-    validates :follower_id, uniqueness: { scope: :followed_id }
-    validates :followed_id, uniqueness: { scope: :follower_id }
+    # Validations to ensure a user can only follow another user once 
+    # And a user can only have one follow from another user
+    
+    validates :follower_id, uniqueness: { scope: :followee_id }
+    validates :followee_id, uniqueness: { scope: :follower_id }
 
 end

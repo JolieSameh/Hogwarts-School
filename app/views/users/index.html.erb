@@ -1,0 +1,43 @@
+<div class="card container">
+
+  <div class="card-header">
+    <h1>Wizards <%= current_user.email %> </h1>
+  </div>
+
+  <div class="card-body">
+    <table class="table table-striped table-hover"> 
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>House</th>
+          <th>Bio</th>
+          <th>Birthday</th>
+          <th>Any relatives?</th>
+          <th></th>
+          <th></th>
+
+        </tr>
+      </thead>
+      <tbody class="table-group-divider" >
+        <% @users.each do |user| %>
+            <tr>
+                <td><%= user.name %></td>  
+                <td><%= user.email %></td>
+                <td><%= user.house %></td>
+                <td><%= user.bio %></td>
+                <td><%= user.birthday %></td>
+                <td><%= user.relatives %></td>
+                <% if current_user.followees.include?(user) %>
+                  <td><%= button_to "Unfollow", unfollow_user_url(user.id), method: "POST"%></td>
+                <% else %>
+                  <td><%= button_to "Follow", follow_user_url(user.id), method: "POST" %></td>
+                <% end %>
+              
+
+            </tr>
+      
+        <% end %>
+      </tbody>
+    </table>
+  </div>
