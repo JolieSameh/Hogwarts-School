@@ -7,6 +7,7 @@ class SpellsController < ApplicationController
     @spells = Spell.all
   end
 
+  
   # GET /spells/1 or /spells/1.json
   def show
   end

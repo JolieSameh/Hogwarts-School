@@ -1,4 +1,12 @@
 class User < ApplicationRecord
+
+  
+  # Returns a random token.
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+
   # has_many :following, foreign_key: "follower_id", class_name: "Relationship"
   # has_many :followers, foreign_key: "followed_id", class_name: "Relationship"
 
@@ -29,5 +37,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :spells
+
+  #has_one_attached :profile_picture, dependent: :destroy
 
 end

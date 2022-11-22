@@ -18,13 +18,22 @@
       <tbody class="table-group-divider" >
         <% @spells.each do |spell| %>
             <tr>
-              <% if spell.user == current_user %>
-                <td><%= spell.name %></td>
-                <td><%= spell.description %></td>
-                <td><%= link_to "Show", spell %></td>
-                <td><%= link_to "Edit", edit_spell_path(spell) %></td>
-                <td><%= link_to "Remove", spell, method: :delete, data: {turbo_method: :delete,
-                turbo_confirm: 'Are you sure?' } %></td>
+              <%if current_user.role == 0 %>
+                <% if spell.user == current_user %>
+                    <td><%= spell.name %></td>
+                    <td><%= spell.description %></td>
+                    <td><%= link_to "Show", spell, class:"btn btn-dark me-md-2" %></td>
+                    <td><%= link_to "Edit", edit_spell_path(spell), class:"btn btn-dark me-md-2" %></td>
+                    <td><%= button_to "Delete", spell, method: :delete, data: {turbo_method: :delete,
+                            turbo_confirm: 'Are you sure?' }, class:"btn btn-danger me-md-2"%></td>
+                <% end %>
+              <% elsif current_user.role == 1 %>
+                    <td><%= spell.name %></td>
+                    <td><%= spell.description %></td>
+                    <td><%= link_to "Show", spell, class:"btn btn-dark me-md-2" %></td>
+                    <td><%= link_to "Edit", edit_spell_path(spell), class:"btn btn-dark me-md-2" %></td>
+                    <td><%= button_to "Delete", spell, method: :delete, data: {turbo_method: :delete,
+                            turbo_confirm: 'Are you sure?' }, class:"btn btn-danger me-md-2"%></td>
               <% end %>
             </tr>
       
