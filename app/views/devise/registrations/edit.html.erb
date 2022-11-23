@@ -33,28 +33,28 @@
 
       <div class="field form group">
         <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control"%>
       </div>
       
       <div class="field form group">
         <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
       </div>
 
 
       <div class="field form group">
         <%= f.label :house %> <br /><i>(Connact the administrator to discuss any change) <br />
-        <%= f.text_field :house, readonly: true%>
+        <%= f.text_field :house, readonly: true, class:"form-control"%>
       </div>
 
       <div class="field form group">
         <%= f.label :birthday %><br />
-        <%= f.date_field :birthday, autofocus: true, autocomplete: "birthday" %>
+        <%= f.date_field :birthday, autofocus: true, autocomplete: "birthday", class:"form-control" %>
       </div>
       
       <div class="field form group">
         <%= f.label :bio %><br />
-        <%= f.text_field :bio, autofocus: true, autocomplete: "bio" %>
+        <%= f.text_field :bio, autofocus: true, autocomplete: "bio" , class:"form-control"%>
       </div>
 
       <div class="field form check">
@@ -65,7 +65,7 @@
 
       <div class="field form group">
         <%= f.label :current_password %> <i>(Needed to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password" %>
+        <%= f.password_field :current_password, autocomplete: "current-password" , class:"form-control"%>
       </div>
       <br>
       <div class="actions">
