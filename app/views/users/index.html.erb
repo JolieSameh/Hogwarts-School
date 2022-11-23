@@ -10,7 +10,6 @@
         <tr>
           <th>Name</th>
           <th>Email</th>
-          <th>House</th>
           <th></th>
           <%if current_user.role == 1 %>
             <th></th>
@@ -25,7 +24,6 @@
             <tr>
                 <td><%= user.name %></td>  
                 <td><%= user.email %></td>
-                <td><%= user.house %></td>
                 <% if current_user.followees.include?(user) %>
                   <td><%= button_to "Unfollow", unfollow_user_url(user.id), method: "POST", class:"btn btn-dark me-md-2"%></td>
                 <% else %>
