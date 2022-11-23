@@ -15,6 +15,8 @@ gem "bootsnap", require: false
 
 #Added by me
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'validates_timeliness', '~> 7.0.0.beta1'
+gem 'bcrypt', '~> 3.1.7' 
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

@@ -4,16 +4,8 @@ class User < ApplicationRecord
   # Returns a random token.
   def User.new_token
     SecureRandom.urlsafe_base64
-  end
-
-
-  # has_many :following, foreign_key: "follower_id", class_name: "Relationship"
-  # has_many :followers, foreign_key: "followed_id", class_name: "Relationship"
-
-  # The first line enables a user to follow many other users. 
-  # It allows the foreign key follower_id to be accessed from the Follow class. 
-  # The user’s ID can then be associated to the follow as the follower. 
-  # The second: a user has many followees through the followed_users established.
+  end 
+  
   has_many :followed_users, foreign_key: :follower_id, class_name: 'Relationship'
   has_many :followees, through: :followed_users
   has_many :following_users, foreign_key: :followee_id, class_name: 'Relationship'
@@ -21,9 +13,9 @@ class User < ApplicationRecord
 
 
   validates :name, :birthday, presence: true
-  validates_each :birthday do |record, attr, value|
-    record.errors.add(attr, 'must be in the past') if value >= Time.now.to_date
-  end
+
+  validates_date :birthday,  on_or_before: :today
+  
   password_requirment = /\A
   (?=.{8,})
   (?=.*\d)

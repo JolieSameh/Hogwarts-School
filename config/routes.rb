@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   delete 'users/:id', to: "users#delete_user", as: "delete_user"
   post '/users/:id/follow', to: "users#follow", as: "follow_user"
   post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
+
+  get'/users/:id/admin_edit', to: "users#admin_edit", as: "admin_edit"
+  put '/users/:id/admin_edit', to: "users#admin_update", as: "admin_update"
   
   get 'password/resets', to: "password_resets#new"
   post 'password/resets', to: "password_resets#create"

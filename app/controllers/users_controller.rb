@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 
     def show
+      @user = User.find(params[:id])
     end
 
-    # GET /spells or /spells.json
+    # GET /users or /users.json
     def index
         @users = User.all
     end
@@ -31,8 +32,31 @@ class UsersController < ApplicationController
     end
     def delete_user
       @user = User.find(params[:id])
-      @user.destroy
-      redirect_to user_path, notice: "Wizard was successfully destroyed." 
+      puts @user.inspect
+      puts "pppp"
+      # @user.destroy
+      # redirect_to user_path, notice: "Wizard was successfully destroyed." 
     end
-  end
+  
+    def admin_edit
+      @user = User.find(params[:id])
+    end
+
+    # PATCH/PUT /users/1 or /users/1.json
+    def admin_update
+      @user = User.find(params[:id])
+      respond_to do |format|
+        if @user.update(user_params)
+          format.html { redirect_to user_url(@user), notice: "Wizard was successfully updated." }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { render :admin_edit, status: :unprocessable_entity }
+          format.json { render @user.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+    def user_params
+      params.require(:user).permit(:relatives, :email, :password, :password_confirmation, :name, :house, :bio, :birthday)
+    end
+end
 
