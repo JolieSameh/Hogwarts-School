@@ -1,0 +1,35 @@
+<%= form_with(model: spell) do |form| %>
+  <% if spell.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(spell.errors.count, "error") %> prohibited this spell from being saved:</h2>
+
+      <ul>
+        <% spell.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+<div>
+  <div class="field form group" >
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, class:"form-control", placeholder:"Name"%>
+  </div>
+
+  <div class="field form group" >
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description, class:"form-control", placeholder:"Description"%>
+  </div>
+  
+  <div class="field form group" >
+    <%= form.number_field :user_id, id: :spell_user_id, class:"form-control", value: current_user.id, type: :hidden%>
+  </div>
+
+  <br>
+  <div class="actions">
+    <%= form.submit class:"btn btn-dark me-md-2"%>
+  </div>
+</div>
+<% end %>

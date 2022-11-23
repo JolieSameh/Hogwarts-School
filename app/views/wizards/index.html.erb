@@ -1,14 +1,44 @@
-<p style="color: green"><%= notice %></p>
+<div class="card container">
 
-<h1>Wizards</h1>
+  <div class="card-header">
+    <h1>Wizards</h1>
+  </div>
 
-<div id="wizards">
-  <% @wizards.each do |wizard| %>
-    <%= render wizard %>
-    <p>
-      <%= link_to "Show this wizard", wizard %>
-    </p>
-  <% end %>
-</div>
+  <div class="card-body">
+    <table class="table table-striped table-hover"> 
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>House</th>
+          <th>Bio</th>
+          <th>Birthday</th>
+          <th>Any relatives?</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider" >
+        <% @wizards.each do |wizard| %>
+            <tr>
+              <td><%= wizard.name %></td>
+              <td><%= wizard.email %></td>
+              <td><%= wizard.house %></td>
+              <td><%= wizard.bio %></td>
+              <td><%= wizard.birthday %></td>
+              <td><%= wizard.relatives %></td>
+              <td><%= link_to "Show", wizard %></td>
+              <td><%= link_to "Edit", edit_wizard_path(wizard) %></td>
+              <td><%= link_to "Remove", wizard, method: :delete, data: {   turbo_method: :delete,
+              turbo_confirm: 'Are you sure?' } %></td>
+            </tr>
+      
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to "New wizard", new_wizard_path %>
+    <div>
+      <%= link_to "New wizard", new_wizard_path, class:"btn btn-dark me-md-2"%>
+    </div>
+  </div>

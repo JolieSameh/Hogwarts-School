@@ -1,2 +1,21 @@
-<h1>Home</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container" style="text-align: center; text-color: green ">
+    <h1>School of Witchcraft and Wizardry</h1>
+        <h5 class="text-danger text-opacity-85">Hogwarts, Hogwarts, Hoggy Warty Hogwarts,<br>
+        Teach us something please,<br>
+        Bring back what we've forgot,<br>
+        Just do your best, we'll do the rest,<br>
+        And learn until our brains all rot</h5>
+        <p> Never forget our school song, our love for spells and fellow wizards. <br>
+        Invest more in your future as a MAGICAL wizard now.</p>
+        <% if user_signed_in? %>
+        
+        <% else %>
+            <%= link_to 'Sign in', new_user_session_path, class:"btn btn-dark btn-lg" %>   
+            <%= link_to 'Sign up', new_user_registration_path, class:"btn btn-dark btn-lg"%>
+        <% end %>
+</div>
+<br>
+<br>
+<br>
+
+

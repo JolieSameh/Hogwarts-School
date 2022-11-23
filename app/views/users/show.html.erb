@@ -1,0 +1,17 @@
+<div class="container-fluid bg-light text-light p-5 container">
+    <div class="bg-secondary", style="margin: 25px auto; padding: 50px; border-radius: 40px;">
+        <h1 class="display-4 fw-bold" style="text-align: center;"> <%= @user.name%> </h1>
+        <h4 style="text-align: center;">Followings: <%= @user.followees.count %> Followers: <%= @user.followers.count %>   </h6>
+
+        <hr>
+        <p>Email:   <%= @user.email%> </p>
+        <p>House:   <%= @user.house%> </p>
+        <p>Bio:   <%= @user.bio%> </p>
+        <p>Birthday:   <%= @user.birthday%> </p>
+        <p>Any wizard relatives?  <%= @user.relatives%> </p>
+    </div>
+        <%= link_to "Edit profile", edit_user_registration_path, class:"btn btn-dark me-md-2" %>
+    <br>
+</div>
+<br>
+<br>
