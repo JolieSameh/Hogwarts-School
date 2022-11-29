@@ -5,17 +5,15 @@ FROM ruby:3.0.2
 # Setup instructions the terminal to run before it's used
 
 
-# tzdata: time zone and daylight-saving time data.
-
-# build-base: Base docker image used for other build images.
-
 # apt: Install apt based dependencies required to run Rails as
 # well as RubyGems. As the Ruby image itself is based on a
 # Debian image, we use apt-get to install those. 
-# no-install-recommends => set up the apt to avoid installing redundant dependencies.
 
-RUN apt-get update && apt-get install -y --no-install-recommends  
-RUN gem install rails
+
+RUN apt-get update && apt-get install -y nodejs
+# RUN gem install bundler:2.3.25
+
+
 # RUN /bin/bash -c 'source /opt/ros/melodic/setup.bash'
 
 # RUN build-base 
@@ -34,13 +32,17 @@ COPY . /app/
 #  Overwrite and install our gems to gems folder
 ENV BUNDLE_PATH / gems
 # Install all dependencies
-RUN bundle install
+RUN gem install bundler -v 2.3.25 \
+  && bundle install
 
 # What command is run when the docker image is started
-ENTRYPOINT [ "bin/rails" ]
 
 # Run server, bind to, 0.0.0.0
-CMD ["s"]
+# CMD ["s","-b","0.0.0.0"]
+# CMD ["s"]
+CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0"]
+
+
 
 # Expose port 3000 of the virtual container to your local machine
 EXPOSE 3000
