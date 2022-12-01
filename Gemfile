@@ -17,6 +17,9 @@ gem "bootsnap", require: false
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'validates_timeliness', '~> 7.0.0.beta1'
 gem 'bcrypt', '~> 3.1.7' 
+# gem "karafka", "~> 2.0"
+gem 'racecar'
+gem 'ruby-kafka'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -31,3 +34,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
